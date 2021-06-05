@@ -11,8 +11,8 @@ python manage.py runserver
 ## Routes
 
 Return an html template of all products
-- {localhost}/products
+- {localhost}:8000/products
 Return an html template of a products details
-- {localhost}/products/details/{id}
+- {localhost}:8000/products/details/{id}
 Return JSON output of all products
-- {localhost}/products/json
+- {localhost}:8000/products/json
