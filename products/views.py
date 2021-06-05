@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from .models import Product
@@ -12,3 +12,6 @@ def index(request):
 def detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     return render(request, 'products/detail.html', {'product': product})
+
+def products_json(request):
+    return JsonResponse(list(Product.objects.all().values()), safe=False)
