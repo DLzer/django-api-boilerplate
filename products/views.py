@@ -15,3 +15,13 @@ def detail(request, product_id):
 
 def products_json(request):
     return JsonResponse(list(Product.objects.all().values()), safe=False)
+
+def product_details_json(request, product_id):
+    product = Product.objects.get(pk=product_id)
+    context = {
+        'id': product.id,
+        'name': product.product_name,
+        'description': product.product_description,
+        'published': product.pub_date
+    }
+    return JsonResponse(context, safe=False)
